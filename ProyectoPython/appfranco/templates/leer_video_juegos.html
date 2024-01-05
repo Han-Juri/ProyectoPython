@@ -1,0 +1,8 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h2>Video Juegos</h2>
+    {% for v in video_juegos %}
+        <li>{{v.nombre}} -- {{v.desarrolladora}} -- {{v.stock}}</li>
+    {% endfor %}
+{% endblock %}

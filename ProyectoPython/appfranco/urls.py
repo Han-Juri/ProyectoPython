@@ -1,0 +1,30 @@
+from django.urls import path
+from appfranco.views import (video_juegos,
+libros,
+peliculas,
+busqueda_video_juegos,
+busqueda_libros,
+busqueda_peliculas,
+resultados_video_juegos,
+resultados_libros,
+resultados_peliculas,
+leer_video_juegos,
+leer_libros,
+leer_peliculas,
+index)
+
+urlpatterns = [
+    path('', index, name='index'),
+    path('video_juegos/', video_juegos, name='video_juegos'),
+    path('libros/', libros, name='libros'),
+    path('peliculas/', peliculas, name='peliculas'),
+    path('video_juegos/busqueda_video_juegos/', busqueda_video_juegos, name='busqueda_video_juegos'),
+    path('libros/busqueda_libros/', busqueda_libros, name='busqueda_libros'),
+    path('peliculas/busqueda_peliculas/', busqueda_peliculas, name='busqueda_peliculas'),
+    path('video_juegos/resultados_video_juegos/', resultados_video_juegos, name='resultados_video_juegos'),
+    path('libros/resultados_libros/', resultados_libros, name='resultados_libros'),
+    path('peliculas/resultados_peliculas/', resultados_peliculas, name='resultados_peliculas'),
+    path('video_juegos/leer_video_juegos/', leer_video_juegos, name='leer_video_juegos'),
+    path('libros/leer_libros/', leer_libros, name='leer_libros'),
+    path('peliculas/leer_peliculas/', leer_peliculas, name='leer_peliculas'),
+]

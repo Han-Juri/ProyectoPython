@@ -1,0 +1,8 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <h2>Resultados de Libros con el nombre {{nombre}}</h2>
+    {% for libro in libros %}
+    <li>{{libro.nombre}} --- {{libro.autor}} --- {{libro.stock}}</li>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h2>Peliculas</h2>
+    {% for p in peliculas %}
+        <li>{{p.nombre}} -- {{p.director}} -- {{p.stock}}</li>
+    {% endfor %}
+{% endblock %}

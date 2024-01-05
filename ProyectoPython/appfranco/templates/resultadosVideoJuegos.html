@@ -1,0 +1,8 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <h2>Resultados de Video Juegos con el nombre {{nombre}}</h2>
+    {% for videoJuego in videoJuegos %}
+    <li>{{videoJuego.nombre}} --- {{videoJuego.desarrolladora}} --- {{videoJuego.stock}}</li>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <h1>Página de Libros</h1>
+    </br>
+    <h2>Subida a base de datos</h2>
+    <form action="{% url 'libros' %}" method="post">
+    {% csrf_token %}
+
+        <label for="nombre">Nombre: </label> 
+            <input name="nombre" type="text">
+
+        <label for="autor">Autor: </label>
+            <input name="autor" type="text">
+
+        <label for="stock">Stock: </label>
+            <input name="stock" type="number">
+
+        <input type="submit" value="Enviar">
+
+    </form>
+    </br>
+    <a href="{% url 'busqueda_libros' %}">Click aqui para realizar una busqueda</a>
+        </br>
+        </br>
+    <a href="{% url 'leer_libros' %}">Click aqui para mostrar todos los libros</a>
+{% endblock %}
