@@ -4,24 +4,19 @@
     <h1>Página de Video Juegos</h1>
     </br>
     <h2>Subida a base de datos</h2>
-    <form action="{% url 'video_juegos' %}" method="post">
+    <form action="{% url 'add_video_juegos' %}" method="post">
         {% csrf_token %}
         
             <label for="nombre">Nombre: </label> 
-                <input name="nombre" type="text">
+                <input name="nombre" type="text" id="nombre">
         
             <label for="desarrolladora">Desarrolladora: </label>
-                <input name="desarrolladora" type="text">
+                <input name="desarrolladora" type="text" id="desarrolladora">
         
             <label for="stock">Stock: </label>
-                <input name="stock" type="number">
+                <input name="stock" type="number" id="stock">
         
             <input type="submit" value="Enviar">
         
     </form>
-    </br>
-    <a href="{% url 'busqueda_video_juegos' %}">Click aqui para realizar una busqueda</a>
-        </br>
-        </br>
-    <a href="{% url 'leer_video_juegos' %}">Click aqui para mostrar todos los juegos</a>
 {% endblock %}

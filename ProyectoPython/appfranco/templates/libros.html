@@ -4,7 +4,7 @@
     <h1>Página de Libros</h1>
     </br>
     <h2>Subida a base de datos</h2>
-    <form action="{% url 'libros' %}" method="post">
+    <form action="{% url 'add_libros' %}" method="post">
     {% csrf_token %}
 
         <label for="nombre">Nombre: </label> 

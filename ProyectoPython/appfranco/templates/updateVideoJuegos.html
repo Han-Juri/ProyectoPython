@@ -1,0 +1,15 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <h2>Actualizar video juego</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Enviar">
+    </form>
+    </br>
+    <a href="{% url 'busqueda_video_juegos' %}">Click aqui para realizar una busqueda</a>
+        </br>
+        </br>
+    <a href="{% url 'leer_video_juegos' %}">Click aqui para mostrar todos los juegos</a>
+{% endblock %}

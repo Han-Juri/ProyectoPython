@@ -1,0 +1,6 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h2>{{mensaje}}</h2>
+<a href="{% url 'index' %}">Inicio</a>
+{% endblock %}

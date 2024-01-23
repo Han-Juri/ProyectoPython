@@ -3,6 +3,21 @@
 {% block contenidoQueCambia %}
 <h2>Video Juegos</h2>
     {% for v in video_juegos %}
-        <li>{{v.nombre}} -- {{v.desarrolladora}} -- {{v.stock}}</li>
+        <ul>
+            <li><strong>Nombre:</strong> {{v.nombre}}</li>
+            <li><strong>Autor:</strong> {{v.desarrolladora}}</li>
+            <li><strong>Stock:</strong> {{v.stock}}</li>
+            {% if user.is_superuser %}
+                <li><strong>Eliminar:</strong> <a href="{% url 'borrar_video_juegos' v.id %}">❌</a> <strong>Editar:</strong> <a href="{% url 'actualizar_video_juegos' v.id %}">📂</a></li>
+            {% endif %}
+            <hr>
+        </ul>
     {% endfor %}
+    <br>
+    <a href="{% url 'busqueda_video_juegos' %}">Click aqui para realizar una busqueda</a>
+    </br>
+    </br>
+    {% if user.is_superuser %}
+        <a href="{% url 'add_video_juegos' %}">Click aqui para agregar video juegos</a>
+    {% endif %}
 {% endblock %}

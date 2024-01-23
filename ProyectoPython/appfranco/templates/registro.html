@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <h2>Registro</h2>
+    <form action="{% url 'registro' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if form.errors %}
+            <div class="form-errors">
+                <p>Por favor, corrige los errores</p>
+                <ul>
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock %}

@@ -15,11 +15,24 @@
     <body>
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
+                <a class="navbar-brand" href="{% url 'about_me' %}">About me</a>
+                <a class="navbar-brand" href="{% url 'admin' %}">Admin</a>
                 <a class="navbar-brand" href="{% url 'index' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'video_juegos' %}">Video juegos</a>
-                <a class="navbar-brand" href="{% url 'libros' %}">Libros</a>
-                <a class="navbar-brand" href="{% url 'peliculas' %}">Peliculas</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="navbar-brand" href="{% url 'leer_video_juegos' %}">Video juegos</a>
+                <a class="navbar-brand" href="{% url 'leer_libros' %}">Libros</a>
+                <a class="navbar-brand" href="{% url 'leer_peliculas' %}">Peliculas</a>
+                
+                {% if request.user.is_authenticated %}
+                    <span>Bienvenid@ {{user.username}}</span>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-primary" type="submit">Cerrar sesion</button>
+                    </form>
+                    <a class="btn btn-primary" href="{% url 'editar_perfil' %}">Editar perfil</a>
+                {% else %}
+                    <a class="btn btn-primary" href="{% url 'login' %}">Log in</a>
+                    <a class="btn btn-primary" href="{% url 'registro' %}">Registrarse</a>
+                {% endif %}
             </div>
         </nav>
 

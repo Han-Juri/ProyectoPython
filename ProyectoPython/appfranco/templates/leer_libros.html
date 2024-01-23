@@ -1,8 +1,24 @@
 {% extends 'padre.html' %}
 {% load static %}
 {% block contenidoQueCambia %}
-<h2>Libros</h2>
-    {% for l in libros %}
-        <li>{{l.nombre}} -- {{l.autor}} -- {{l.stock}}</li>
-    {% endfor %}
+    <h2>Libros</h2>
+    <hr>
+        {% for l in libros %}
+            <ul>
+                <li><strong>Nombre:</strong> {{l.nombre}}</li>
+                <li><strong>Autor:</strong> {{l.autor}}</li>
+                <li><strong>Stock:</strong> {{l.stock}}</li>
+                {% if user.is_superuser %}
+                    <li><strong>Eliminar:</strong> <a href="{% url 'borrar_libros' l.id %}">❌</a> <strong>Editar:</strong> <a href="{% url 'actualizar_libros' l.id %}">📂</a></li>
+                {% endif %}
+                <hr>
+            </ul>
+        {% endfor %}
+        <br>
+        <a href="{% url 'busqueda_libros' %}">Click aqui para realizar una busqueda</a>
+        </br>
+        </br>
+        {% if user.is_superuser %}
+            <a href="{% url 'add_libros' %}">Click aqui para agregar libros</a>
+        {% endif %}
 {% endblock %}

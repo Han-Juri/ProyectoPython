@@ -1,0 +1,9 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <h2>Borrar pelicula</h2>
+    <form method="post">{% csrf_token %}
+        Borraras permanentemente a {{object.nombre}} ¿Estas seguro?
+        <input type="submit" value="Eliminar">
+    </form>
+{% endblock %}

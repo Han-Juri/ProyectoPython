@@ -2,7 +2,12 @@
 {% load static %}
 {% block contenidoQueCambia %}
     <h2>Resultados de Peliculas con el nombre {{nombre}}</h2>
-    {% for pelicula in peliculas %}
-    <li>{{pelicula.nombre}} --- {{pelicula.director}} --- {{pelicula.stock}}</li>
+    {% for p in peliculas %}
+    <ul>
+        <li>Nombre:{{p.nombre}}</li>
+        <li>Autor:{{p.director}}</li>
+        <li>Stock:{{p.stock}}</li>
+        <hr>
+    </ul>
     {% endfor %}
 {% endblock %}

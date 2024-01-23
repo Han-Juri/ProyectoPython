@@ -1,0 +1,10 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <h2>Editar a {{usuario}}</h2>
+    <form action="{% url 'editar_perfil' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock %}

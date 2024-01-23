@@ -2,7 +2,12 @@
 {% load static %}
 {% block contenidoQueCambia %}
     <h2>Resultados de Video Juegos con el nombre {{nombre}}</h2>
-    {% for videoJuego in videoJuegos %}
-    <li>{{videoJuego.nombre}} --- {{videoJuego.desarrolladora}} --- {{videoJuego.stock}}</li>
+    {% for v in videoJuegos %}
+    <ul>
+        <li>Nombre:{{v.nombre}}</li>
+        <li>Autor:{{v.desarrolladora}}</li>
+        <li>Stock:{{v.stock}}</li>
+        <hr>
+    </ul>
     {% endfor %}
 {% endblock %}

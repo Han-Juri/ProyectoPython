@@ -2,7 +2,12 @@
 {% load static %}
 {% block contenidoQueCambia %}
     <h2>Resultados de Libros con el nombre {{nombre}}</h2>
-    {% for libro in libros %}
-    <li>{{libro.nombre}} --- {{libro.autor}} --- {{libro.stock}}</li>
+    {% for l in libros %}
+    <ul>
+        <li>Nombre:{{l.nombre}}</li>
+        <li>Autor:{{l.autor}}</li>
+        <li>Stock:{{l.stock}}</li>
+        <hr>
+    </ul>
     {% endfor %}
 {% endblock %}

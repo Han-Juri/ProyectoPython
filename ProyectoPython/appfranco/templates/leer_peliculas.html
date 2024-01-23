@@ -3,6 +3,21 @@
 {% block contenidoQueCambia %}
 <h2>Peliculas</h2>
     {% for p in peliculas %}
-        <li>{{p.nombre}} -- {{p.director}} -- {{p.stock}}</li>
+        <ul>
+            <li><strong>Nombre:</strong> {{p.nombre}}</li>
+            <li><strong>Director:</strong> {{p.director}}</li>
+            <li><strong>Stock:</strong> {{p.stock}}</li>
+            {% if user.is_superuser %}
+                <li><strong>Eliminar:</strong> <a href="{% url 'borrar_peliculas' p.id %}">❌</a> <strong>Editar:</strong> <a href="{% url 'actualizar_peliculas' p.id %}">📂</a></li>
+            {% endif %}
+            <hr>
+        </ul>
     {% endfor %}
+    <br>
+    <a href="{% url 'busqueda_peliculas' %}">Click aqui para realizar una busqueda</a>
+    </br>
+    </br>
+    {% if user.is_superuser %}
+        <a href="{% url 'add_peliculas' %}">Click aqui para agregar peliculas</a>
+    {% endif %}
 {% endblock %}
